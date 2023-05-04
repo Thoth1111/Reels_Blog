@@ -46,7 +46,7 @@ describe Post, type: :model do
     describe '#update_users_counter' do
         before { subject.save }
 
-        it 'should update the author\'s posts_counter' do
+        it 'should update the author posts_counter' do
             expect(user.posts_counter).to eq(1)
         end
     end
