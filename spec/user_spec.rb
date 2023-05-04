@@ -33,7 +33,7 @@ describe User, type: :model do
     end
   end
   describe '#recent_three' do
-    it 'should return the three most recent posts' do
+    it 'should return up to three of the most recent posts' do
         post.save
         expect(subject.recent_three).to eq([post])
     end
