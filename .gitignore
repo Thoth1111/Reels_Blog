@@ -30,9 +30,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore database config.
-/config/database.yml
-
 #Ignore node_modules
 node_modules/
 
