@@ -12,6 +12,7 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
+  - [Usage](#usage)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -36,7 +37,7 @@
   
   <summary>Database</summary>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
 </details>
 
@@ -56,6 +57,20 @@
 - **Ruby on Rails**:
 
 ### Install
+Requires PostgreSQL and RoR(Ruby on Rails)
+
+
+### Usage
+-Set the username and password in the `database.yml` file
+-Run `$ rails server` to confirm it works
+-Run `$ rails db:migrate` to create the database tables
+-Run and use `$ rails console` to run CRUD methods & queries
+
+To run tests:
+-On initial run, migrate to the test database `rails db:migrate RAILS_ENV=test`
+-For consecutive tests, run `rspec -f doc`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Setup
 
