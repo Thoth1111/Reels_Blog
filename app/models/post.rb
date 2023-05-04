@@ -1,15 +1,15 @@
 class Post < ApplicationRecord
-    belongs_to :author, class_name: 'User', foreign_key: :author_id
-    has_many :comments, dependent: :destroy
-    has_many :likes, dependent: :destroy
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
-    after_create :update_users_counter
+  after_create :update_users_counter
 
-    def recent_five
-        comments.order(created_at: :desc).limit(5)
-    end
+  def recent_five
+    comments.order(created_at: :desc).limit(5)
+  end
 
-    def increment_counter
-        author.increment!(:posts_counter)
-    end
+  def update_users_counter
+    author.increment!(:posts_counter)
+  end
 end
