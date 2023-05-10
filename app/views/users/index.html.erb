@@ -1,5 +1,11 @@
-<div>
-<h1> Users </h1>
-<h3> Here is a list of users: </h3>
-</div>
+<ul>
+    <% @users.each do |user| %>
+        <li><img src=<%= user.photo %>>
+            <div>
+                <%= user.name %>
+                Number of posts: <%= user.posts_counter %>
+            </div
+        </li>
+    <% end %>
+</ul>
     
