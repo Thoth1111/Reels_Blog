@@ -1,4 +1,19 @@
 <div>
-    <h1> User </h1>
-    <h3> Here are the details of a specific user by id: </h3>
-</div
+    <img src=<%= @user.photo %>>
+    <div>
+        <%= @user.name %>
+        Number of posts: <%= @user.posts_counter %>
+    </div>
+</div>
+<% @user.posts.each do |post| %>
+    <div>
+        Post <%= post.id %>:<br><br>
+        <%= truncate(post.text, length: 50, separator: ' ') %><br>
+        Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+    </div>
+    <ul>
+        <% post.comments.each do |comment| %>
+            <li> <%= comment.author.name %>: <%= comment.text %> </li>
+        <% end %>
+    </ul>
+<% end %>
