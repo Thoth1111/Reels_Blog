@@ -4,6 +4,12 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def new
+    respond_to do |format|
+      format.html { render :new, locals: { post: Post.new} }
+    end
+  end
+
   def show
     set_post
   end
