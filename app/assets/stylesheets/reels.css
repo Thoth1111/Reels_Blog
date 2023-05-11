@@ -1,0 +1,22 @@
+
+.list {
+list-style: none;
+margin: 10px;
+padding: 0;
+}
+
+.bordered {
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.post-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.post {
+    margin: 10px;
+}

@@ -1,4 +1,16 @@
-<div>
-    <h1> Post </h1>
-    <h3> Here are the details of a specific post </h3>
+<section class="bordered">
+    <div class="post-info">
+        <span>Post <%= @post.id %> by <%= @post.author.name %></span>
+        <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
+    </div>
+    <div class="post">
+        <%= @post.text %>
+    </div>
+</section>
+<div class="bordered">
+    <ul class= "list">
+        <% @post.comments.each do |comment| %>
+            <li> <%= comment.author.name %>: <%= comment.text %> </li>
+        <% end %>
+    </ul>
 </div>
