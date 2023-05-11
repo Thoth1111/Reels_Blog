@@ -2,18 +2,18 @@
     <img src=<%= @user.photo %>>
     <div>
         <%= @user.name %>
-        Number of posts: <%= @user.posts_counter %>
+        Number of posts: <%= @user.posts_counter %><br><br>
     </div>
 </div>
-<% @user.posts.each do |post| %>
+<div>
+    bio<br>
+    <%= @user.bio %><br><br>
+</div>
+<% @user.recent_three.each do |post| %>
     <div>
-        Post <%= post.id %>:<br><br>
+        Post <%= post.id %>:<br>
         <%= truncate(post.text, length: 50, separator: ' ') %><br>
-        Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+        Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %><br><br>
     </div>
-    <ul>
-        <% post.comments.each do |comment| %>
-            <li> <%= comment.author.name %>: <%= comment.text %> </li>
-        <% end %>
-    </ul>
 <% end %>
+<button><%= link_to 'See all posts', user_posts_path(@user) %></button>
