@@ -1,11 +1,13 @@
-<ul>
+<ul class="list">
     <% @users.each do |user| %>
         <li>
-            <a href=<%= user_path(user) %>>
-                <img src=<%= user.photo %>>
-                <div>
-                    <%= user.name %>
-                    Number of posts: <%= user.posts_counter %>
+            <a class="link" href=<%= user_path(user) %>>
+                <div class="user-info">
+                    <img class="user-img" src=<%= user.photo %>>
+                    <div class="bordered user">
+                        <span class="user-name"><%= user.name %></span>
+                        <span class="user-offset">Number of posts: <%= user.posts_counter %></span>
+                    </div>
                 </div>
             </a>
         </li>

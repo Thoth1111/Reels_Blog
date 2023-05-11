@@ -1,16 +1,16 @@
 <section class="bordered">
-    <div class="post-info">
+    <div class="post-stats">
         <span>Post <%= @post.id %> by <%= @post.author.name %></span>
         <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>
     </div>
     <div class="post">
         <%= @post.text %>
     </div>
-</section>
-<div class="bordered">
+    <hr class="separator">
     <ul class= "list">
         <% @post.comments.each do |comment| %>
             <li> <%= comment.author.name %>: <%= comment.text %> </li>
         <% end %>
     </ul>
-</div>
+</section>
+
