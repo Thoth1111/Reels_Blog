@@ -1,0 +1,22 @@
+<div>
+    <img src=<%= @user.photo %>>
+    <div>
+        <%= @user.name %>
+        Number of posts: <%= @user.posts_counter %>
+    </div>
+</div>
+<% @posts.each do |post| %>
+    <div>
+        <a href=<%= user_post_path(@user, post) %>>
+            Post <%= post.id %>:<br><br>
+            <%= truncate(post.text, length: 50, separator: ' ') %><br>
+            Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
+        </a>
+    </div>
+    <ul>
+        <% post.recent_five.each do |comment| %>
+            <li> <%= comment.author.name %>: <%= comment.text %> </li>
+        <% end %>
+    </ul>
+<% end %>
+<%= paginate @posts %>
