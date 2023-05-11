@@ -1,4 +1,23 @@
-<div>
-    <h1> User Posts </h1>
-    <h3> Here is a list of posts by a specific user by id: </h3>
+<div class="user-info">
+    <img class="user-img" src=<%= @user.photo %>>
+    <div class="bordered user">
+        <span class="user-name"><%= @user.name %></span>
+        <span class="user-offset">Number of posts: <%= @user.posts_counter %></span>
+    </div>
 </div>
+<% @posts.each do |post| %>
+    <a class="link" href=<%= user_post_path(@user, post) %>>
+        <section class="bordered post-info">
+            Post <%= post.id %>:<br><br>
+            <%= truncate(post.text, length: 50, separator: ' ') %><br><br>
+            <span class="offset-left">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
+            <hr class="separator">
+            <ul class="list">
+                <% post.recent_five.each do |comment| %>
+                    <li> <%= comment.author.name %>: <%= comment.text %> </li>
+                <% end %>
+            </ul>
+        </section>
+    </a>
+<% end %>
+<%= paginate @posts %>
