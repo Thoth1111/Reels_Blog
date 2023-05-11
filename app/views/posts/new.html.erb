@@ -1,0 +1,16 @@
+<fieldset>
+    <legend>Create a new post:</legend>
+    <%= form_with model: post, url: user_posts_path, method: :post, local: true, scope: :post do |form| %>
+        <div>
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+        </div>
+        <div>
+            <%= form.label :text %>
+            <%= form.text_area :text, size: "60x12" %>
+        </div>
+        <div>
+            <%= form.submit %>
+        </div>
+    <% end %>
+</fieldset
