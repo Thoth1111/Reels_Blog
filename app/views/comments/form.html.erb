@@ -1,0 +1,9 @@
+<%= form_with model: comment, url: user_posts_comments_path(@post.author, @post) do |form| %>
+    <div>
+        <%= form.label :text %>
+        <%= form.text_area :text, size: "60x12" %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

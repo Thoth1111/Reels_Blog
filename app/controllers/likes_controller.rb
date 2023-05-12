@@ -7,6 +7,7 @@ class LikesController < ApplicationController
             redirect_to user_posts_path(current_user, @like.post)
         else
             flash.now[:error] = "like failed"
+            render :create
         end
     end
 end
