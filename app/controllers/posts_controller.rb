@@ -5,9 +5,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    post = Post.new
-    respond_to do |format|
-      format.html { render :new, locals: { post: post} }
+    @post = Post.new
+  end
+
+  def create
+    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
+    if @post.save
+      flash[:success] = "Post created successfully"
+      redirect_to user_posts_path(current_user, @post)
+    else
+      flash.now[:error] = "Error creating post"
+      render :new
     end
   end
 

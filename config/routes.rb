@@ -6,5 +6,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create]
+    # Defines a new route for a new post for a specific user
+    get 'new', to: 'posts#new'
+    post 'create', to: 'posts#create'
   end
 end
