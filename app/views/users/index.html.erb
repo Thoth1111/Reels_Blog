@@ -1,16 +1,19 @@
-<ul class="list">
-    <% @users.each do |user| %>
-        <li>
-            <a class="link" href=<%= user_path(user) %>>
-                <div class="user-info">
-                    <img class="user-img" src=<%= user.photo %>>
-                    <div class="bordered user">
-                        <span class="user-name"><%= user.name %></span>
-                        <span class="user-offset">Number of posts: <%= user.posts_counter %></span>
+<%= render 'layouts/header' %>
+<section class="indent">
+    <ul class="list">
+        <% @users.each do |user| %>
+            <li>
+                <a class="link" href=<%= user_path(user) %>>
+                    <div class="user-info">
+                        <img class="user-img" src=<%= user.photo %>>
+                        <div class="bordered user">
+                            <span class="user-name"><%= user.name %></span>
+                            <span class="user-offset">Number of posts: <%= user.posts_counter %></span>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </li>
-    <% end %>
-</ul>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</section>
     

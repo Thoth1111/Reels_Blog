@@ -1,4 +1,5 @@
-<section class="bordered">
+<%= render 'layouts/header' %>
+<section class="bordered indent">
     <div class="post-stats">
         <span>Post <%= @post.id %> by <%= @post.author.name %></span>
         <span>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></span>

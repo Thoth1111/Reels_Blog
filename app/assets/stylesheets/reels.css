@@ -1,3 +1,6 @@
+.indent {
+  margin: 20px 15%;
+}
 
 .list {
   list-style: none;
@@ -20,6 +23,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+
+fieldset {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
 }
 
