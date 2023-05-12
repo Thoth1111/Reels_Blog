@@ -5,6 +5,11 @@
     </div>
     <div class="post">
         <%= @post.text %>
+        <br>
+        <div>
+            <%= render 'comments/form' %>
+            <%= render 'likes/like' %>
+        </div>
     </div>
     <hr class="separator">
     <ul class= "list">

@@ -1,4 +1,4 @@
-<%= form_with model: comment, url: user_posts_comments_path(@post.author, @post) do |form| %>
+<%= form_with model: @comment, url: user_posts_comments_path(@post.author, @post) do |form| %>
     <div>
         <%= form.label :text %>
         <%= form.text_area :text, size: "60x12" %>
