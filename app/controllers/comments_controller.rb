@@ -1,13 +1,18 @@
 class CommentsController < ApplicationController
     def create
-        @comment = Comment.new(params.require(:comment).permit(:text))
+        @comment = Comment.new(comment_params)
         @comment.post_id = params[:post_id]
+
         if @comment.save
-            flash[:success] = "comment added"
-            redirect_to user_posts_path(current_user, @comment.post)
+            redirect_to user_post_path(current_user, @comment.post)
         else
-            flash.now[:error] = "Error adding comment"
             render :create
         end
+    end
+
+    private
+    
+    def comment_params
+        params.require(:comment).permit(:text)
     end
 end
