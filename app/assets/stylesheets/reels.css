@@ -96,7 +96,7 @@ fieldset {
   align-items: center;
 }
 
-.to-posts-btn {
+.general-btn {
   padding: 10px;
   width: 20%;
   margin: 0 auto;
@@ -107,4 +107,15 @@ fieldset {
   width: 15%;
   font-size: 16px;
   height: 40px;
+}
+
+.cancel-btn {
+  width: fit-content;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
 }

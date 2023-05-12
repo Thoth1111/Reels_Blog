@@ -1,4 +1,8 @@
 <%= render 'layouts/header' %>
+<br>
+<button class="cancel-btn link indent">
+        <%= link_to 'All posts', user_posts_path, style: 'color: black; text-decoration: none;' %>
+</button>
 <section class="bordered indent">
     <div class="post-stats">
         <span>Post <%= @post.id %> by <%= @post.author.name %></span>
@@ -7,8 +11,10 @@
     <div class="post">
         <%= @post.text %>
         <br><br>
-        <div>
-            <%= render 'comments/form' %>
+        <div class="post-actions">
+            <button class="cancel-btn link">
+                <%= link_to 'Add Comment', new_user_post_comment_path(@post.author, @post), style: 'color: black; text-decoration: none;' %>
+            </button>
             <%= render 'likes/like' %>
         </div>
     </div>
