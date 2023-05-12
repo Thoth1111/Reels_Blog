@@ -1,3 +1,6 @@
+.indent {
+  margin: 20px 15%;
+}
 
 .list {
   list-style: none;
@@ -20,6 +23,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+
+fieldset {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -75,9 +90,32 @@
   text-align: right;
 }
 
-.to-posts-btn {
+.page-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.general-btn {
   padding: 10px;
   width: 20%;
   margin: 0 auto;
   font-size: 18px;
+}
+
+.page-btn {
+  width: 15%;
+  font-size: 16px;
+  height: 40px;
+}
+
+.cancel-btn {
+  width: fit-content;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
 }

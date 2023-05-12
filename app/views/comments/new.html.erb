@@ -1,0 +1,15 @@
+<%= render 'layouts/header' %>
+<section class="indent">
+    <%= form_with model: Comment, url: user_post_comments_path(@post.author, @post) do |form| %>
+        <div class="form">
+            <%= form.label :Comment %>
+            <%= form.text_area :text, size: "50x8" %>
+        </div>
+        <div>
+            <%= form.submit "save"%>
+            <button class="cancel-btn link">
+                <%= link_to 'Cancel', user_post_path(@post.author, @post), style: 'color: black; text-decoration: none;' %>
+            </button>
+        </div>
+    <% end %>
+</section>
