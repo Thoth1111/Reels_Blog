@@ -75,9 +75,21 @@
   text-align: right;
 }
 
+.page-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .to-posts-btn {
   padding: 10px;
   width: 20%;
   margin: 0 auto;
   font-size: 18px;
+}
+
+.page-btn {
+  width: 15%;
+  font-size: 16px;
+  height: 40px;
 }
