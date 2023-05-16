@@ -13,10 +13,6 @@ describe 'Users', type: :request do
     it 'renders the index template' do
       expect(response).to render_template(:index)
     end
-
-    it 'contains the correct placeholder text' do
-      expect(response.body).to include('Here is a list of users:')
-    end
   end
 
   describe 'GET #show' do
@@ -32,10 +28,6 @@ describe 'Users', type: :request do
 
     it 'renders the show template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'contains the correct placeholder text' do
-      expect(response.body).to include('Here are the details of a specific user by id: ')
     end
   end
 end

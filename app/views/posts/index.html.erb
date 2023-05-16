@@ -21,7 +21,7 @@
                 <span class="offset-left">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></span>
                 <hr class="separator">
                 <ul class="list">
-                    <% post.recent_five.each do |comment| %>
+                    <% post.recent_five.includes(:author).each do |comment| %>
                         <li> <%= comment.author.name %>: <%= comment.text %> </li>
                     <% end %>
                 </ul>
