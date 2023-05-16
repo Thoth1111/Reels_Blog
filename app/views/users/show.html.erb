@@ -11,7 +11,7 @@
         bio:<br><br>
         <%= @user.bio %><br><br>
     </div>
-    <% @user.recent_three.each do |post| %>
+    <% @user.first_three.each do |post| %>
         <a class="link" href=<%= user_post_path(@user, post) %>>
             <div class="bordered post-info">
                 Post <%= post.id %>:<%= post.title %><br><br>

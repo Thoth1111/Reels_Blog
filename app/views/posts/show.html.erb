@@ -3,6 +3,7 @@
 <button class="cancel-btn link indent">
         <%= link_to 'All posts', user_posts_path, style: 'color: black; text-decoration: none;' %>
 </button>
+<h3 class="indent"><%= @post.title %></h3>
 <section class="bordered indent">
     <div class="post-stats">
         <span>Post <%= @post.id %> by <%= @post.author.name %></span>
