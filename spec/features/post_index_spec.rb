@@ -61,8 +61,6 @@ describe 'Post index page', type: :feature do
     expect(page).to have_current_path(user_post_path(@user, @post_two))
   end
 
-
-
   context 'when there are more than 5 posts' do
     before :each do
       @post_six = Post.create(author: @user, title: 'Resurrection', text: 'I am the One')
