@@ -20,7 +20,7 @@
     </div>
     <hr class="separator">
     <ul class= "list">
-        <% @post.comments.each do |comment| %>
+        <% @post.comments.includes(:author).each do |comment| %>
             <li> <%= comment.author.name %>: <%= comment.text %> </li>
         <% end %>
     </ul>
