@@ -1,3 +1,10 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  align-items: center;
+}
+
 .indent {
   margin: 20px 15%;
 }
@@ -118,4 +125,60 @@ fieldset {
 .post-actions {
   display: flex;
   align-items: center;
+}
+
+.notice,
+.alert {
+  margin: 0 auto;
+  font-size: 18px;
+  height: 25px;
+  background-color: #d3d3d3;
+}
+
+.auth-btn {
+  padding: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.auth-page,
+fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.field,
+.actions {
+  font-size: 18px;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.inputs {
+  box-sizing: border-box;
+  width: 95%;
+  height: 28px;
+}
+
+.link_to {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  margin: auto 10px;
+}
+
+.secondary-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 5px auto;
+}
+
+.alert-list {
+  color: red;
+  font-size: 14px;
 }
