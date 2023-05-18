@@ -19,6 +19,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    set_post
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully'
+      redirect_to user_posts_path(current_user)
+    else
+      flash.now[:error] = 'Error deleting post'
+      render :show
+    end
+  end
+
   def show
     set_post
   end
