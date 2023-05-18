@@ -1,4 +1,14 @@
 <header>
     <h1>Reelz Blog</h1>
-    <%= link_to "Home", root_path %>
+    <nav>
+        <%= link_to "Home", root_path, class: "link" %>
+        <% if user_signed_in? %>
+            <%= link_to "New Post", new_user_post_path(current_user), class: "link" %>
+            <%= link_to "Sign out", destroy_user_session_path, data: 
+            {turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?"}, class: "link" %>
+        <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "link" %>
+            <%= link_to "Log in", new_user_session_path, class: "link" %>
+        <% end %>
+    </nav>
 </header>
