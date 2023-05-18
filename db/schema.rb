@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_074813) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "photo"
+    t.string "photo", default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptJezC3jOPsu_6IEZljbdTMc85j2gLvre0g&usqp=CAU"
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,6 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_074813) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
