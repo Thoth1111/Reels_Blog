@@ -13,6 +13,8 @@
   
   <body>
   <%= render 'layouts/header' %>
+  <p class="success-flash flash"><%= flash[:success]%></p>
+  <p class="error-flash flash"><%= flash[:error] %></p>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
