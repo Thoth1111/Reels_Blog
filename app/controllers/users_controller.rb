@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  protect_from_forgery with: :exception
   def index
     @users = User.all
   end
@@ -11,6 +13,5 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-    @showcurrentuser = current_user
   end
 end
