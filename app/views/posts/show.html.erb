@@ -23,8 +23,16 @@
     <hr class="separator">
     <ul class= "list">
         <% @post.comments.includes(:author).each do |comment| %>
-            <li> <%= comment.author.name %>: <%= comment.text %> </li>
+            <li>
+                <%= comment.author.name %>: <%= comment.text %>
+                <br>
+                <% if can? :destroy, comment %>
+                    <button class="cancel-btn">
+                        <%= link_to 'Delete Comment', user_post_comment_path(@post.author, @post, comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?",
+                        turbo_action: "click->delete#deleteComment"}, style: 'color: black; text-decoration: none;' %>
+                    </button>
+                <% end %>
+            </li>
         <% end %>
     </ul>
 </section>
-
