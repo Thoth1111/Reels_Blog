@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).page(params[:page]).per(5)
@@ -16,6 +18,17 @@ class PostsController < ApplicationController
     else
       flash.now[:error] = 'Error creating post'
       render :new
+    end
+  end
+
+  def destroy
+    set_post
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully'
+      redirect_to user_posts_path(current_user)
+    else
+      flash.now[:error] = 'Error deleting post'
+      render :show
     end
   end
 

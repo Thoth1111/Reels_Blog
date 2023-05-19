@@ -1,0 +1,4 @@
+<button class="cancel-btn link">
+    <%= link_to 'Delete Post', user_post_path(@post.author, @post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?", 
+    turbo_action: "click->delete#deletePost"}, style: 'color: black; text-decoration: none;' %>
+</button>
