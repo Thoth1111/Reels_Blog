@@ -77,6 +77,6 @@ end
 gem 'rails-controller-testing'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'cancancan'
 gem 'devise'
 gem 'kaminari'
-gem 'cancancan'

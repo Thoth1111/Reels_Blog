@@ -128,7 +128,9 @@ fieldset {
 }
 
 .notice,
-.alert, .success-flash, .error-flash {
+.alert,
+.success-flash,
+.error-flash {
   margin: 0 auto;
   font-size: 18px;
   height: 25px;
