@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  devise_for :users
+  get '/api-docs/v1/swagger.yaml', to: redirect('/swagger/v1/swagger.yml')
 
   # Defines the root path route ("/")
   root 'users#index'
