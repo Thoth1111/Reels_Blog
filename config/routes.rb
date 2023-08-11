@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   get '/api-docs/v1/swagger.yaml', to: redirect('/swagger/v1/swagger.yml')
 
   # Defines the root path route ("/")
+  devise_for :users
   root 'users#index'
 
   namespace :api, defaults: { format: :json} do
     namespace :v1 do
-      resources :users, only: [:index] do
-        resources :posts, only: [:index] do
-          resources :comments, only: [:index, :create]
+      resources :users, only: [:index, :create, :destroy] do
+        resources :posts, only: [:index, :create, :destroy] do
+          resources :comments, only: [:index, :create, :destroy]
+          resources :likes, only: [:index, :create, :destroy]
         end
       end
     end

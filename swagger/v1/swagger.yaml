@@ -68,29 +68,54 @@ paths:
                 - created_at
                 - updated_at
                 - post_id
-            application/xml:
+  "/api/v1/users/{user_id}/posts/{post_id}/likes":
+    get:
+      summary: Retrieves all likes
+      tags:
+      - Likes
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: likes found
+          content:
+            application/json, application/xml:
               schema:
                 type: object
                 properties:
                   id:
                     type: integer
-                  text:
-                    type: string
-                  post_id:
-                    type: integer
                   user_id:
+                    type: integer
+                  post_id:
                     type: integer
                   created_at:
                     type: string
-                  updated_at:
-                    type: string
                 required:
                 - id
-                - text
                 - user_id
+                - post_id,
                 - created_at
-                - updated_at
-                - post_id
+  api/v1/users/{user_id}/posts/{post_id}/likes:
+    post:
+      summary: Creates a like
+      tags:
+      - Likes
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: like created
+        '422':
+          description: invalid request
   "/api/v1/users/{user_id}/posts":
     get:
       summary: Retrieves all posts

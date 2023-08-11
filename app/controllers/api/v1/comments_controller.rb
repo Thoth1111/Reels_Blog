@@ -18,8 +18,16 @@ module Api
         else
           render json: @comment.errors, status: :unprocessable_entity
         end
+      end
 
-        render json: { error: 'Invalid token' }, status: :unprocessable_entity
+      def destroy
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        if @comment.destroy
+          head :no_content, status: :ok
+        else
+          render json: @comment.errors, status: :unprocessable_entity
+        end
       end
 
       private
