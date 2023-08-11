@@ -3,7 +3,192 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/v1/users/{user_id}/posts/{post_id}/comments":
+    post:
+      summary: Creates a comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                text:
+                  type: string
+                post_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - text
+    get:
+      summary: Retrieves all comments
+      tags:
+      - Comments
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: comments found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  text:
+                    type: string
+                  post_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                required:
+                - id
+                - text
+                - user_id
+                - created_at
+                - updated_at
+                - post_id
+  "/api/v1/users/{user_id}/posts/{post_id}/likes":
+    get:
+      summary: Retrieves all likes
+      tags:
+      - Likes
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: likes found
+          content:
+            application/json, application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  user_id:
+                    type: integer
+                  post_id:
+                    type: integer
+                  created_at:
+                    type: string
+                required:
+                - id
+                - user_id
+                - post_id,
+                - created_at
+  api/v1/users/{user_id}/posts/{post_id}/likes:
+    post:
+      summary: Creates a like
+      tags:
+      - Likes
+      parameters:
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: like created
+        '422':
+          description: invalid request
+  "/api/v1/users/{user_id}/posts":
+    get:
+      summary: Retrieves all posts
+      tags:
+      - Posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: posts found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  comments:
+                    type: array
+                  likes:
+                    type: array
+                required:
+                - id
+                - title
+                - text
+                - user_id
+                - created_at
+                - updated_at
+                - comments
+                - likes
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+                  comments:
+                    type: array
+                  likes:
+                    type: array
+                required:
+                - id
+                - title
+                - text
+                - user_id
+                - created_at
+                - updated_at
+                - comments
+                - likes
 servers:
 - url: https://{defaultHost}
   variables:

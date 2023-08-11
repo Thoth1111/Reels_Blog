@@ -5,7 +5,7 @@ RSpec.describe 'api/comments', type: :request do
     post 'Creates a comment' do
       tags 'Comments'
       consumes 'application/json'
-      parameter name: :post, in: :body, schema: {
+      parameter name: :comment, in: :body, schema: {
         type: :object,
         properties: {
           id: { type: :integer },
@@ -22,7 +22,7 @@ RSpec.describe 'api/comments', type: :request do
       end
 
       response '422', 'invalid request' do
-        let(:blog) { { text: '' } }
+        let(:comment) { { text: '' } }
         run_test!
       end
     end
@@ -31,8 +31,7 @@ RSpec.describe 'api/comments', type: :request do
   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
     get 'Retrieves all comments' do
       tags 'Comments'
-      produces 'application/json', 'application/xml'
-
+      produces 'application/json'
       parameter name: :post_id, in: :path, type: :string
 
       response '200', 'comments found' do

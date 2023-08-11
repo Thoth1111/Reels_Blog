@@ -2,11 +2,11 @@ require 'swagger_helper'
 
 RSpec.describe 'api/likes', type: :request do
     path '/api/v1/users/{user_id}/posts/{post_id}/likes' do
-        get 'Retrives all likes' do
+        get 'Retrieves all likes' do
             tags 'Likes'
-            produces 'application/json'
+            produces 'application/json, application/xml'
 
-            parameter :user_id, in: :path, type: :string :post_id, in: :path, type: :string
+            parameter name: :post_id, in: :path, type: :string
 
             response '200', 'likes found' do
                 schema type: :object,
@@ -19,6 +19,23 @@ RSpec.describe 'api/likes', type: :request do
                     required: %w[id user_id post_id, created_at]
                 
                 let(:post_id) { 9 }
+                run_test!
+            end
+        end
+    end
+    path 'api/v1/users/{user_id}/posts/{post_id}/likes' do
+        post 'Creates a like' do
+            tags 'Likes'
+            consumes 'application/json'
+            parameter name: :like, in: :path, type: :string
+
+            response '201', 'like created' do
+                let(:like) { { user_id: 1, post_id: 9 } }
+                run_test!
+            end
+
+            response '422', 'invalid request' do
+                let(:like) { { user_id: 1, post_id: 9 } }
                 run_test!
             end
         end
